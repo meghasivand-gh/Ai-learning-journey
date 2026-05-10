@@ -1,0 +1,136 @@
+SAP S/4HANA Supply Chain Planning — Course Notes
+
+Notes from: Exploring Business Processes in SAP S/4HANA Production Planning
+Course on SAP Learning Hub | April 2026
+
+
+1. The Core Problem: Why Do We Need Planning?
+
+Lead time: Total time from purchasing raw materials to finished product (weeks/months)
+Delivery time: The time a customer is willing to wait (often just days)
+The gap: Lead time is almost always LONGER than delivery time → we must plan and produce in advance
+
+
+2. Push, Pull and Hybrid Strategies
+Push (Make-to-Stock)
+
+Produce in advance based on forecasts
+Products are "pushed" to market before customer orders
+Pros: Short delivery time, stable production, economies of scale
+Cons: Risk of overproduction, obsolete inventory, high storage costs
+Best for: Standard products with predictable demand
+
+Pull (Make-to-Order)
+
+Production starts ONLY when customer orders
+The customer "pulls" production
+Pros: No risk of unsold goods, customization possible, lower inventory costs
+Cons: Longer delivery time, requires flexible production systems
+Best for: Customized products
+
+Hybrid
+
+Push for components/subassemblies
+Pull for final assembly/customization
+Benefits: Shorter lead time, shorter delivery time, balanced inventory levels
+
+
+3. Forecasting
+Forecasting = predicting future demand based on historical data.
+Three information sources:
+
+Historical sales data — what have we sold before?
+Market intelligence — trends, competitors, customer behavior
+One-off events — trade fairs, campaigns, special events
+
+Key forecasting models:
+ModelUsed forMoving averageGeneral data smoothingConstant modelProducts with stable demandTrend modelProducts with increasing/decreasing demandSeasonal modelSeasonal products (ice cream, Christmas lights)Exponential smoothingGives more weight to recent dataLinear regressionStatistical trend analysis
+
+Key exam note: Market intelligence is part of forecasting, NOT demand planning or production planning.
+
+
+4. Demand Planning
+Demand planning is the overall process that includes forecasting.
+The flow:
+
+Collect historical data — from sales orders, invoices, deliveries
+Aggregate the data — compile into a unified view
+Choose planning level — Location, Product Hierarchy, Customer, Sales Org, Region
+Create forecast — using models + market intelligence
+
+Two types of plans:
+
+Quantity-based — number of units (e.g., 500 bicycles)
+Value-based — monetary (e.g., 500,000 SEK)
+
+
+5. Planned Independent Requirements (PIR)
+
+Planned — planned in advance, not based on actual orders
+Independent — independent of a specific customer order
+Requirements — represents a need for materials/products
+
+PIR is the output of forecasting, entered into the SAP system.
+Example: Forecast says 200 bicycles → PIR = 200 bicycles
+
+6. Three Types of Demand
+TypeDescriptionExamplePIRForecast-based needs, no customer order yet100 bicycles based on forecastSales OrdersActual customer ordersCustomer orders 50 branded bicyclesStock Transfer RequirementsNeeds from other locationsDistribution center needs 50 bicycles
+Consumption: When a sales order comes in, it "consumes" the PIR.
+
+PIR = 200, customer orders 30 → PIR becomes 170
+The system does this automatically to avoid double production
+
+
+7. Planning Strategies in SAP
+Make-to-Stock Strategies
+StrategyNameHow it works10Pure make-to-stockPlan controls everything. Sales orders do NOT affect planning. Manual adjustment needed.40Planning with final assemblyPlan controls, BUT sales orders can consume PIR and trigger extra production automatically. Most used strategy!70Planning at assembly levelParts manufactured in advance. Final assembly on customer order. Good for products with variants.
+Make-to-Order Strategies
+StrategyNameHow it works20Pure make-to-orderNo PIR. Everything starts with customer order. Each order has separate stock.50Planning without final assemblyParts in advance, but finished product belongs to ONE specific customer.60Planning with planning materialAdvanced order handling82Assembly processingAdvanced order handling
+Consumption Modes
+ModeDirectionWhat happens1Backward ←Consumes PIR that come BEFORE the order3Forward →Consumes PIR that come AFTER the order2/4Backward + Forward ← →Searches backward first, then forward5Period-specificOnly consumes PIR in the SAME period
+Consumption mode and periods are set in material master data (MM02) in the MRP 3 view.
+
+8. SAP IBP (Integrated Business Planning)
+SAP IBP is the modern planning tool:
+
+Cloud-based (built on SAP HANA)
+Real-time dashboards
+Predictive analytics
+Simulation ("what if...?")
+Collaboration features
+Excel integration
+
+Covers: S&OP, Demand Planning, Inventory Planning, Response & Supply Planning, Supply Chain Control Tower
+Replaces older tools: Flexible Planning and Standard SOP
+
+9. MRP (Material Requirements Planning)
+MRP = breaks down PIR into exact material needs.
+MRP does:
+
+BOM explosion — breaks down the product into all individual parts
+Checks existing inventory
+Creates planned orders (what to produce?)
+Creates purchase requisitions (what to buy?)
+Calculates capacity requirements (enough machines and people?)
+Determines quantities and dates
+
+Example: PIR = 200 bicycles → MRP calculates: 200 frames, 400 wheels, 200 handlebars, etc.
+
+10. The Complete Chain — From Forecast to Production
+Historical Data + Market Intelligence
+        ↓
+Forecasting (in SAP IBP)
+        ↓
+Demand Plan
+        ↓
+PIR (Planned Independent Requirements) → sent to SAP S/4HANA
+        ↓
+Demand Management (+ sales orders + stock transfers)
+        ↓
+MRP (Material Requirements Planning)
+        ↓
+Production Orders + Purchase Orders
+        ↓
+PRODUCTION
+
+Notes by Melika Ghasivand — Industrial Engineering & Management, Mälardalen University
