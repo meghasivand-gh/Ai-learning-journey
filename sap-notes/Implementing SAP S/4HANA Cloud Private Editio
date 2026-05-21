@@ -1,0 +1,206 @@
+# Implementing SAP S/4HANA Cloud Private Edition
+
+## Course: Implementing SAP S/4HANA Cloud Private Edition
+**Platform:** SAP Learning Hub  
+**Date:** 2026-05-21  
+
+---
+
+## Unit 1 – Introducing SAP S/4HANA Cloud Private Edition
+
+### Lesson 1 – Identifying Characteristics of SAP S/4HANA Cloud Private Edition
+
+---
+
+### What is SAP S/4HANA Cloud Private Edition?
+
+SAP's regular on-premise system, but hosted by SAP in their private cloud (SAP HANA Enterprise Cloud).
+
+**Three ways to run SAP:**
+| Type | Description | Analogy |
+|---|---|---|
+| **On-premise** | You own and manage the server yourself | Owning a house |
+| **Public Cloud** | Shared standardized system, limited customization | Renting an apartment |
+| **Private Cloud** | SAP manages the server, you customize freely | Renting a house – you decorate however you want |
+
+**Key characteristics:**
+- **Tailored-to-fit** – customized to the company's needs
+- Best suited for **mid-size to large companies** with industry-specific requirements
+- Same release cycle as on-premise (new version every other year)
+- Must be upgraded **at least every 7 years** to maintain support
+- Can be combined with Public Edition in a **two-tier ERP** structure
+- Managed via **SAP Fiori Launchpad** with low/no-code customizations
+
+---
+
+### Clean Core – Keep the system clean 🧹
+
+**Problem:** Companies add lots of custom code → the system gets "dirty" → can't upgrade → miss new features.
+
+**Clean Core** = keep the core system as clean as possible so upgrades are always possible.
+
+**5 dimensions of Clean Core:**
+1. **Business Processes** – keep processes standardized
+2. **Extensibility** – separate extensions from standard code
+3. **Data** – keep data clean and according to standards
+4. **Integration** – keep the landscape flexible
+5. **Operations** – keep operations effective and efficient
+
+> **Analogy:** Like an iPhone – if you install shady apps and change system settings, you can't update anymore.
+
+---
+
+### RISE with SAP – The all-in-one package ☁️
+
+**SAP Activate** = the step-by-step plan (has existed for a long time)  
+**RISE with SAP** = a package that contains EVERYTHING needed to move to the cloud
+
+**The 6 phases (SAP Activate):**
+
+| Phase | Meaning | Restaurant analogy |
+|---|---|---|
+| **Discover** | Explore possibilities | "I want to open a restaurant, what's out there?" |
+| **Prepare** | Assemble team and plan | Hire a chef, plan the budget |
+| **Explore** | Test and decide | Taste-test the menu, choose decor |
+| **Realize** | Build for real | Renovate the venue, train staff |
+| **Deploy** | Go live | Opening day! |
+| **Run** | Daily operations | Running the restaurant every day |
+
+**RISE with SAP includes:**
+- The system itself (Private Cloud)
+- **SAP Cloud ALM** – tool for managing project tasks (included for free)
+- **Embedded Launch Onboarding Expert** – an SAP employee who helps your team
+- Extra checkpoints (Q-Gates)
+
+> **Analogy:** SAP Activate is the recipe. RISE with SAP is a meal kit – you get the recipe, all the ingredients, and a chef to help you.
+
+**Tools in the RISE with SAP Methodology:**
+
+| Tool | What it does | Analogy |
+|---|---|---|
+| **Clean Core Q-Gate** | Checkpoint + meeting at the end of each phase | Exam before the next course |
+| **Clean Core Reports** | Reports showing how clean the project is | Grade documentation |
+| **Clean Core Runbook** | Measures performance against KPIs, list of customizations | Diary that keeps track |
+| **RISE Methodology Report** | Overall status report | Summary for the boss |
+
+---
+
+### Business Processes – Two types of companies
+
+**Administrative ERP** = core processes that ALL companies need:
+
+| Process | What it does | Example |
+|---|---|---|
+| **Procure to Pay** | Buy things, pay suppliers | Buy laptops for employees |
+| **Order to Cash** | Receive customer orders, deliver, get paid | Customer orders, you ship |
+| **Record to Report** | Financial closing, reconciliations, taxes | Month-end closing |
+
+**Operational ERP** = extra processes if you MANUFACTURE products:
+
+| Process | What it does |
+|---|---|
+| **Idea to Market** | R&D designs the product, creates materials list |
+| **Procure to Pay** | Buy materials you can't make yourself |
+| **Plan to Fulfill** | Manufacture, quality check, store in warehouse |
+| **Order to Cash** | Deliver to customer, handle returns |
+
+**Two types of manufacturing:**
+- 🧪 **Process manufacturing** – mix things that CANNOT be separated (e.g. pharmaceuticals, cake)
+- 🔧 **Discrete manufacturing** – assemble parts that CAN be separated (e.g. car, phone)
+
+---
+
+### Industry Solutions – 6 sectors
+
+| Sector | Examples |
+|---|---|
+| Energy & Natural Resources | Chemicals, Mining, Oil & Gas |
+| Financial Services | Banking, Insurance |
+| Consumer Industries | Fashion, Retail, Life Sciences |
+| Discrete Industries | Automotive, High Tech, Aerospace & Defense |
+| Service Industries | Logistics, Media, Telecom |
+| Public Services | Healthcare, Higher Education, Public Sector |
+
+---
+
+## Lesson 2 – Describing the Customer Transition Paths
+
+### How do you get to SAP S/4HANA Cloud Private Edition?
+
+Different paths depending on what the company has today:
+
+| Transition path | Description | Analogy |
+|---|---|---|
+| **New Implementation (Greenfield)** | Brand new system from scratch | Building a new house |
+| **System Conversion** | Convert existing SAP ERP system 1:1 | Renovating your old house |
+| **Selective Data Transition** | Choose which data to migrate | Moving to a new house, choosing what to bring |
+| **Lift & Shift** | Move the entire system without changes | Moving the whole house to a new lot |
+| **Upgrade** | Upgrade to a new version (e.g. 2022 → 2023) | Updating iPhone iOS 17 → 18 |
+| **Update** | Install smaller updates/bug fixes | Security update |
+
+---
+
+### Real-world statistics (~10,000 projects over 3 years):
+- **50%** New Implementation
+- **48%** System Conversion
+- **2%** Selective Data Transition
+
+---
+
+### New Implementation – step by step
+
+1. **Software Installation** – SAP installs a new system in the cloud
+2. **Pre-Configuration Content Activation** – Activate ready-made templates (SAP Best Practices)
+   - **SAP Best Practices** – predefined processes for a quick start
+   - **Enterprise Management Layer (EML)** – for multinational companies, 43 country versions
+   - **SAP Qualified Partner Packaged Solutions** – partner-created templates for specific industries
+3. **Software Configuration** – Configure and customize as needed
+4. **Initial Data Load** – Transfer data:
+   - **Master data** (customers, suppliers, cost centers)
+   - **Open items** (open orders, balances)
+   - ⚠️ Closed/completed transactions are NOT migrated
+
+---
+
+### System Conversion – step by step
+
+1. **Prepare ERP System** – Clean up custom code, reduce data volumes
+2. **Database Migration** – Move data to SAP HANA
+3. **System Update** – Update applications and tables
+4. **Data Conversion** – Convert to the new data model
+5. **Software Configuration** – Adapt to S/4HANA requirements
+
+**Tools:**
+- **SUM** (Software Update Manager) – handles database migration, update, and conversion
+- **DMO** (Database Migration Option) – does 3 steps in 1: migrate database + update + convert
+
+---
+
+### Selective Data Transition – two variants
+
+| Variant | Description | Best if... |
+|---|---|---|
+| **Shell Conversion** | Copy the shell, remove data, convert | You want to keep most processes |
+| **Mix & Match** | New system, transfer selected parts | You want to redesign most of it |
+
+⚠️ SAP does NOT support third-party tools – if something goes wrong with non-SAP tools, it's not covered by SAP Support.
+
+---
+
+### Lift & Shift – step by step
+
+1. **Check Prerequisites** – Source system must be on a supported release
+2. **Provision Target System** – New hardware in the new landscape
+3. **Backup & Restore** – Back up and restore on the target system
+
+---
+
+## Quiz – Summary
+
+| Question | Correct answer |
+|---|---|
+| What are the 5 Clean Core dimensions? | Business Processes, Data, Extensibility, Integration, Operations |
+| Checkpoints at the end of each phase with SAP meeting? | Clean Core Q-Gate |
+| Customer wants to redesign most processes – which transition? | New Implementation |
+| Measures performance against KPIs through audit trail? | Clean Core Runbook |
+| Selective migration of configuration, master, and transactional data? | Selective Data Transition |
